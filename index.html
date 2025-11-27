@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertigo Merchtem - Premium Eventhall</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f1419;
+            color: #fff;
+        }
+
+        header {
+            background: #00d4ff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 99;
+            font-weight: 700;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #0f1419;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #0f1419;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .cta-primary {
+            background-color: #0f1419;
+            color: #00d4ff;
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            border: 2px solid #00d4ff;
+            color: #00d4ff;
+            padding: 12px 30px;
+            font-size: 1.1em;
+        }
+
+        .hero {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(15, 20, 25, 0.6);
+        }
+
+        .hero h2 {
+            position: relative;
+            font-size: 3.5em;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .hero button {
+            position: relative;
+            margin-top: 20px;
+            font-size: 1.2em;
+            z-index: 2;
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h3 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #00d4ff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        form label {
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        form input, form textarea, form select {
+            padding: 12px;
+            border: 1px solid #00d4ff;
+            border-radius: 5px;
+            background-color: #1a1f26;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        form input:focus, form textarea:focus, form select:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        form button {
+            background-color: #00d4ff;
+            color: #0f1419;
+            font-weight: 700;
+            padding: 15px;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: #00d4ff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #0f1419;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Bandeau de changement de langue -->
+<div class="language-selector">
+    <button data-lang="nl" class="lang-btn active">NL</button>
+    <button data-lang="fr" class="lang-btn">FR</button>
+    <button data-lang="en" class="lang-btn">EN</button>
+</div>
+
+<!-- Header avec CTA -->
+<header>
+    <h1 class="title">Vertigo Eventhall</h1>
+    <nav>
+        <ul>
+            <li><a href="#about" class="smooth-scroll" data-translate="menu_about">Overzicht</a></li>
+            <li><a href="#services" class="smooth-scroll" data-translate="menu_services">Diensten</a></li>
+            <li><a href="#gallery" class="smooth-scroll" data-translate="menu_gallery">Galerij</a></li>
+            <li><a href="#pricing" class="smooth-scroll" data-translate="menu_pricing">Prijzen</a></li>
+            <li><a href="#contact" class="smooth-scroll" data-translate="menu_contact">Contact</a></li>
+        </ul>
+    </nav>
+    <button class="cta-primary" data-translate="reserve_btn" onclick="scrollToContact()">Reserveren</button>
+</header>
+
+<!-- Hero avec image de fond -->
+<section id="hero" class="hero">
+    <div class="overlay"></div>
+    <h2 data-translate="hero_title">Votre événement inoubliable commence ici</h2>
+    <button class="cta-secondary" onclick="scrollToContact()" data-translate="hero_btn">Réservez maintenant</button>
+</section>
+
+<!-- Sections diverses -->
+<section id="about" class="section" data-translate="about_text">
+    <h3 data-translate="about_title">À propos de Vertigo</h3>
+    <p>Très professionnel, haut de gamme, avec animations fluides et design moderne...</p>
+</section>
+
+<section id="services" class="section" data-translate="services_title">
+    <h3>Nos services</h3>
+    <!-- contenu ici -->
+</section>
+
+<section id="gallery" class="section" data-translate="gallery_title">
+    <h3>Galerie</h3>
+    <!-- images ici -->
+</section>
+
+<section id="pricing" class="section" data-translate="pricing_title">
+    <h3>Tarifs</h3>
+    <!-- forfaits ici -->
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section">
+    <h3 data-translate="contact_title">Contactez-Nous</h3>
+    <form id="contactForm">
+        <label for="name" data-translate="form_name">Nom</label>
+        <input type="text" id="name" placeholder="Votre nom" />
+
+        <label for="email" data-translate="form_email">Email</label>
+        <input type="email" id="email" placeholder="Votre email" />
+
+        <label for="phone" data-translate="form_phone">Téléphone</label>
+        <input type="tel" id="phone" placeholder="Votre téléphone" />
+
+        <label for="eventType" data-translate="form_event_type">Type d'événement</label>
+        <select id="eventType">
+            <option value="private" data-translate="event_private">Privé</option>
+            <option value="corporate" data-translate="event_corporate">Corporate</option>
+            <!-- autres -->
+        </select>
+
+        <label for="participants" data-translate="form_participants">Participants</label>
+        <input type="number" id="participants" />
+
+        <label for="date" data-translate="form_date">Date</label>
+        <input type="date" id="date" />
+
+        <label for="message" data-translate="form_message">Message</label>
+        <textarea id="message" placeholder="Votre message"></textarea>
+
+        <button type="submit" data-translate="send_btn">Envoyer</button>
+    </form>
+
+    <!-- Informations -->
+    <div class="contact-info">
+        <p data-translate="contact_phone">Téléphone : +32 488 29 999</p>
+        <p data-translate="contact_email">Email : info@vertigomerchtem.be</p>
+        <!-- liens WhatsApp, etc. -->
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Vertigo Merchtem. <span data-translate="all_rights">Tous droits réservés</span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
